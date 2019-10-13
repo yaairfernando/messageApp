@@ -11,23 +11,23 @@
 <div class="w50">
   <div class="ui placeholder segment raised">  
     <div class="ui left icon action input">
-      <div class="ui form">
+      <%= form_for(:session, :html =>{class: "ui form"}) do |f| %> 
         <div class="field">
-          <label>Username</label>
+          <%= f.label :username, 'Username' %>
           <div class="ui left icon input">
-            <input type="text" placeholder="Username" />
+            <%= f.text_field :username, class: "", placeholder:"Username" %>
             <i class="user icon"></i>
           </div>
         </div>
         <div class="field">
-          <label>Password</label>
+          <%= f.label :password, 'Password' %>
           <div class="ui left icon input">
-            <input type="password" placeholder="Password"/>
+            <%= f.password_field :password, placeholder: "Password" %>
             <i class="lock icon"></i>
           </div>
         </div>
-        <div class="ui negative button submit">Login</div>
-      </div>
+        <%= f.submit "Login ", class:"ui negative button submit w100"%>
+      <% end %>
     </div>
     <div class="ui horizontal divider">
       Or

@@ -1,7 +1,22 @@
 <div class="event">
     <div class="content">
-      <div class="summary">
-        <em><%= message.user.username %> :</em> <%= message.body %>
-      </div>
+      <% if current_user.username == message.user.username  %>
+        <div class="summary left">
+          <div class="back">
+            <%= message.body %> <small class="timeLeft"><%= time_ago_in_words(message.created_at) %> </small>
+          </div>
+        </div>
+        <% else %>
+        <div class="summary right">
+          <div class="contentR">
+            <div class="user">
+              <%= message.user.username %>
+            </div>
+            <div class="back">
+              <em class=""><%= message.user.username %> :</em> <%= message.body %> <small class="time"><%= time_ago_in_words(message.created_at) %> </small>
+            </div>
+          </div>
+        </div>
+        <% end %>
     </div>
   </div>

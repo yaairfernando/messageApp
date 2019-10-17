@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'bcrypt', '~> 3.1.7'
 gem 'hirb'
+gem 'redis'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -60,6 +61,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+end
+
+group :production do
+  gem 'puma', '~> 3.11'
+  gem 'redis' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
